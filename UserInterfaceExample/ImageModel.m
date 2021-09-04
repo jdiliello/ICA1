@@ -34,7 +34,7 @@
 // that holds the names of the images we are loading
 -(NSArray*)imageNameArray{
     if(!_imageNameArray)
-        _imageNameArray = @[@"Eric", @"Jeff", @"Bill"];
+        _imageNameArray = @[@"Eric", @"Jeff", @"Bill", @"Bird", @"Starry Night", @"Tires"];
     // NSLog(@"%@", _imageNameArray);
     return _imageNameArray;
 }
@@ -49,7 +49,10 @@
         _imageDict = @{
             @"Eric":[UIImage imageNamed:@"Eric"],
             @"Jeff":[UIImage imageNamed:@"Jeff"],
-            @"Bill":[UIImage imageNamed:@"Bill"]
+            @"Bill":[UIImage imageNamed:@"Bill"],
+            @"Bird":[UIImage imageNamed:@"Bird"],
+            @"Starry Night":[UIImage imageNamed:@"Starry Night"],
+            @"Tires":[UIImage imageNamed:@"Tires"]
         // NSLog(@"%@", self.imageNameArray);
         // for (id name in self.imageNameArray){
             // NSLog(@"%@", name);
