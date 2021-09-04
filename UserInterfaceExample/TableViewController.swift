@@ -50,7 +50,7 @@ class TableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath)
             
             // Configure the cell...
-            cell.textLabel?.text = "All Image"
+            cell.textLabel?.text = "All Images"
             cell.detailTextLabel?.text = "Summary"
             
             return cell

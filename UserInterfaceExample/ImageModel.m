@@ -9,14 +9,14 @@
 #import "ImageModel.h"
 
 @interface ImageModel ()
-// declare property
-@property (strong, nonatomic) NSDictionary *imageDict;
+// declare properties
 @property (strong, nonatomic) NSArray *imageNameArray;
+@property (strong, nonatomic) NSMutableDictionary *imageDict;
 @end
 
 @implementation ImageModel
 
-// link the property to the variable
+// link the properties to the variables
 @synthesize imageDict = _imageDict;
 @synthesize imageNameArray = _imageNameArray;
 
@@ -32,34 +32,23 @@
 
 // create an array that is lazily instantiated
 // that holds the names of the images we are loading
+// (this is the only part of the code that is hard coded
 -(NSArray*)imageNameArray{
     if(!_imageNameArray)
         _imageNameArray = @[@"Eric", @"Jeff", @"Bill", @"Bird", @"Starry Night", @"Tires"];
-    // NSLog(@"%@", _imageNameArray);
     return _imageNameArray;
 }
-
 
 // create a lazy dict from the imageNameArray
 // takes each name from imageNameArray as the key
 // then stores the UIImage object with that name
 // as the value in the dictionary
--(NSDictionary*)imageDict{
+-(NSMutableDictionary*)imageDict{
     if (!_imageDict)
-        _imageDict = @{
-            @"Eric":[UIImage imageNamed:@"Eric"],
-            @"Jeff":[UIImage imageNamed:@"Jeff"],
-            @"Bill":[UIImage imageNamed:@"Bill"],
-            @"Bird":[UIImage imageNamed:@"Bird"],
-            @"Starry Night":[UIImage imageNamed:@"Starry Night"],
-            @"Tires":[UIImage imageNamed:@"Tires"]
-        // NSLog(@"%@", self.imageNameArray);
-        // for (id name in self.imageNameArray){
-            // NSLog(@"%@", name);
-            // [_imageDict setObject:[UIImage imageNamed:name] forKey:name];
-        //    [_imageDict setObject:@"YES" forKey:name];
+        _imageDict = [[NSMutableDictionary alloc] init];
+        for (id name in self.imageNameArray){
+            [_imageDict setObject:[UIImage imageNamed:name] forKey:name];
         };
-    NSLog(@"%@", _imageDict);
     return _imageDict;
 }
 
@@ -74,7 +63,7 @@
     return self.imageDict[self.imageNameArray[index]];
 }
 
-// return the count of keys
+// return the count of keys in imageDict
 -(NSInteger)numberOfImages{
     return [self.imageDict count];
 }
