@@ -1,0 +1,23 @@
+CS 7323 - J. DiLiello, D. Pompa
+
+2. Is this new implementation of the image model
+more efficient? Why or why not?
+
+Efficient in the sense that there is a single load.
+A user doesn't need to wait for individual images 
+to load since it preloads all of the images when
+first called.
+
+
+3. Is this implementation of the model more scalable?
+Why or why not?
+
+
+
+
+4. If there were 1000 images in the image.assets file,
+what would you change in the implementation of the 
+image model?
+
+Don't preload.  Only load an image if it's being used/
+requested by a user.
